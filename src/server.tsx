@@ -11,7 +11,8 @@ import { getPublications } from "./publicationFactory";
 async function startServer() {
     console.log("Starting server...");
     const app = new Elysia().use(html());
-    app.use(staticPlugin()).listen(3000);
+    const port = process.env.PORT;
+    app.use(staticPlugin()).listen(port);
 
     async function setupRoute(page: PageConfig) {
         app.get(page.route, async ({ request, html }) => {
