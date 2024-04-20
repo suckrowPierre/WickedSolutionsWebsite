@@ -1,0 +1,61 @@
+{
+  "about": "In Volume 1, we have honor to publish first scientific publications of $mika$ on data-collection of cat vocalizations §mika§; of $lilli$ on learning system for Sorbian language §lilli§; of $franz$ on optimization of an own Large Language Model (LLM) for simplified German §franz§; of $celefinn$ on design of a modular puzzle and feeder for crows §celefinn§; of $max$ on multiplayer free association game §max§; of $pierre$ on optimization of own finances by means of LLM-driven data aggregation §pierre§; of $manuelsena$ on unf*cking the Berlin market with flats and realities §manuelsena§ and of $alessandro$ on development of reinforcement algorithms which will gradually turn Berlin Open Lab’s robotic arm into a Picasso-like painter §alessandro§.",
+  "works": [
+    {
+      "id": "pierre",
+      "authors": "Pierre-Louis Suckrow",
+      "title": "Navigating (personal) finances in a  latent way",
+      "text-align-last": "left",
+      "emoji": "💸"
+    },
+    {
+      "id": "mika",
+      "authors": "Mika Zoe Rosenberg",
+      "title": "I want to talk to my Cat (Bubbles)",
+      "text-align-last": "right",
+      "emoji": "🙀"
+    },
+    {
+      "id": "alessandro",
+      "authors": "Alessandro Mac-Nelly",
+      "title": "Algorithmic Muse: Robotic-Arm Learns to Draw Humans",
+      "text-align-last": "justify",
+      "emoji": "👨‍🎨"
+    },
+    {
+      "id": "manuelsena",
+      "authors": "Manuel Sinn & Sena Dogan",
+      "title": "Crisis Response in Post-Expropriation Berlin - Investigating its Political Nature and Simulating Collective Action",
+      "text-align-last": "justify",
+      "emoji": "🏘️"
+    },
+    {
+      "id": "franz",
+      "authors": "Franz Christopher Xaver Hagen",
+      "title": "Overcoming Bureaucratic Exclusion Addressing the Challenges Faced by Foreigners in Germany",
+      "text-align-last": "justify",
+      "emoji": "🇩🇪"
+    },
+    {
+      "id": "lilli",
+      "authors": "Lilli-Chiara Kurth",
+      "title": "Rec :: A Language Learning System",
+      "text-align-last": "right",
+      "emoji": "🐸"
+    },
+    {
+      "id": "celefinn",
+      "authors": "Célestin Meunier & Finnegan Hardy",
+      "title": "Designing an Interactive Device for Contact with Corvids: Towards Exploring Aesthetic Sensibilities",
+      "text-align-last": "justify",
+      "emoji": "🐦‍⬛"
+    },
+    {
+      "id": "max",
+      "authors": "Max Smith",
+      "title": "Generating vocabulary clusters using word association games",
+      "text-align-last": "justify",
+      "emoji": "🔡"
+    }
+  ]
+}
