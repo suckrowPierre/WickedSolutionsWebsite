@@ -4,15 +4,19 @@ import {mainContentId} from "../common/MainContent";
 
 export {Title}
 
-const Title = ({title}: {title: string}) => {
+const Title = ({title, route}: {title: string, route: string}) => {
     const target = `#${mainContentId}`;
     return (
-        <button hx-get={"/"}
+        <a href={route} class="link">
+            <H1 text={title} />
+        </a>
+    )
+}
+
+/*
+<button hx-get={"/"}
                 hx-target={target}
                 hx-push-url="true"
                 hx-swap="innerHTML"
         >
-            <H1 text={title} />
-        </button>
-    )
-}
+ */

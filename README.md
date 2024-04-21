@@ -8,10 +8,16 @@ To install dependencies:
 bun install
 ```
 
-To run:
+To run server:
 
 ```bash
 bun run src/server.tsx
+```
+
+To create static files:
+
+```bash
+bun run src/HTMLFactory.tsx 
 ```
 
 This project was created using `bun init` in bun v1.0.27. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

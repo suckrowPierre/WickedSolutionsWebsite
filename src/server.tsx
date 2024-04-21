@@ -3,8 +3,7 @@ import { html } from "@elysiajs/html";
 import * as elements from "typed-html";
 import { staticPlugin } from '@elysiajs/static'
 import { BaseHTML } from "./components/BaseHTML";
-import {pages, PageConfig} from "./pages";
-import { getPublications } from "./publicationFactory";
+import {getPages, PageConfig} from "./pages";
 
 
 
@@ -13,6 +12,7 @@ async function startServer() {
     const app = new Elysia().use(html());
     const port = process.env.PORT;
     app.use(staticPlugin()).listen(port);
+    const pages = getPages();
 
     async function setupRoute(page: PageConfig) {
         app.get(page.route, async ({ request, html }) => {
@@ -33,10 +33,6 @@ async function startServer() {
             }
         });
     }
-
-    app.get("/test", async ({ html }) => {
-        getPublications();
-    });
 
     pages.forEach(page => {
         setupRoute(page);

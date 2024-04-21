@@ -48,8 +48,8 @@ function createAboutText(publicationInfo: PublicationInfo) {
 }
 
 
-function createPublicationData (publicationInfo: PublicationInfo, volume: number): PublicationData[] {
-    const dataPath = `public/volumes/${volume}/`;
+function createPublicationData (publicationInfo: PublicationInfo, volume: number, createStatic: boolean = false): PublicationData[] {
+    const dataPath = createStatic ? `volumes/${volume}/` : `public/volumes/${volume}/`;
     let publicationsData = [] as PublicationData[];
     for (const work of publicationInfo.works) {
         const publication: PublicationData = {
@@ -65,16 +65,16 @@ function createPublicationData (publicationInfo: PublicationInfo, volume: number
     return publicationsData;
 }
 
-function getPublications(): Publication[] {
+function getPublications(createStatic: boolean = false): Publication[] {
     let publications = [] as Publication[];
     const volumes = getFoldersSync("public/volumes");
     for (const volume of volumes) {
         const publicationInfo = readPublicationInfo(parseInt(volume));
         const aboutText = createAboutText(publicationInfo);
-        const publicationsData = createPublicationData(publicationInfo, parseInt(volume));
+        const publicationsData = createPublicationData(publicationInfo, parseInt(volume), createStatic );
         const publicationGrid = <PublicationImageGrid publications={publicationsData} />
         const publicationTitle = `Volume ${volume}`;
-        const bibFilePath = `public/volumes/${volume}/references.bib`;
+        const bibFilePath = createStatic ? `volumes/${volume}/references.bib` : `public/volumes/${volume}/references.bib`;
         const publicationElement = <Publication title={publicationTitle} about={aboutText} bibFilePath={bibFilePath} children={publicationGrid} />
         publications.push({
             number: parseInt(volume),

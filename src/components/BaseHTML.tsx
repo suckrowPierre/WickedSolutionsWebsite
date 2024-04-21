@@ -3,13 +3,12 @@ import {HTMX, HYPERSCRIPT, TAILWIND} from "./scripts";
 import {Title} from "./layout/Title";
 import {StevieSamsBold} from "./common/Fonts";
 import {MainContent} from "./common/MainContent";
-import {PageConfig, pages} from "../pages";
+import {PageConfig} from "../pages";
 import {Navbar} from "./layout/Navbar";
 import {isMobileOrNarrow} from "./common/Hyperscript";
 
 
 
-const title = pages.find(page => page.route === "/").title
 
 const authors =
     [
@@ -31,7 +30,6 @@ const Head = ({title, authors}: {title: string, authors: any}) => (
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
         {authors.map((author: any) => `<meta name="author" content="${author.name}">`).join("\n")}
-        <HTMX />
         <HYPERSCRIPT />
         <TAILWIND />
         <StevieSamsBold />
@@ -53,20 +51,25 @@ const Body = ({children, pages}: {children: any, pages: PageConfig[]}) => {
     )
 }
 
-const Header = ({pages}: {pages: PageConfig[]}) => (
+const Header = ({pages}: {pages: PageConfig[]}) => {
+    const title = pages.find(page => (page.route === "/"|| page.route === "index.html")).title
+    const titleRoute = pages.find(page => (page.route === "/"|| page.route === "index.html")).route
+    return (
     <header class="max-w-[520px]">
-        <Title title={title} />
+        <Title title={title} route= {titleRoute} />
         <Navbar pages={pages} />
     </header>
-)
+)}
 
 
-const BaseHTML = ({children, pages}: {children: any, pages: PageConfig[]}) => `
+const BaseHTML = ({children, pages}: {children: any, pages: PageConfig[]}) => {
+    const title = pages.find(page => (page.route === "/"|| page.route === "index.html")).title
+    return `
 <!DOCTYPE html>
 <html lang="en">
     ${Head({title, authors})}
     ${Body({children, pages})}
 </html>
-`
+`}
 
 export {BaseHTML}
