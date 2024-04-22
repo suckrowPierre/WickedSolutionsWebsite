@@ -7,7 +7,7 @@ import * as elements from "typed-html";
 async function createAndSaveHTMLPages() {
     const pages = getPages(true);
     pages.forEach(page => {
-        const HTML = <BaseHTML pages={pages}>
+        const HTML = <BaseHTML pages={pages} isStatic={true}>
             {page.content}
         </BaseHTML>
         const htmlString = HTML.toString();

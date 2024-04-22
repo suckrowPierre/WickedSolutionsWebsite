@@ -24,17 +24,19 @@ const authors =
         }
 ]
 
-const Head = ({title, authors}: {title: string, authors: any}) => (
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{title}</title>
-        {authors.map((author: any) => `<meta name="author" content="${author.name}">`).join("\n")}
-        <HYPERSCRIPT />
-        <TAILWIND />
-        <StevieSamsBold />
-    </head>
-)
+const Head = ({title, authors, isStatic=false}: {title: string, authors: any, isStatic:boolean}) => {
+    return (
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>{title}</title>
+            {authors.map((author: any) => `<meta name="author" content="${author.name}">`).join("\n")}
+            <HYPERSCRIPT />
+            <TAILWIND />
+            <StevieSamsBold isStatic={isStatic}/>
+        </head>
+    )
+}
 
 
 const Body = ({children, pages}: {children: any, pages: PageConfig[]}) => {
@@ -62,12 +64,12 @@ const Header = ({pages}: {pages: PageConfig[]}) => {
 )}
 
 
-const BaseHTML = ({children, pages}: {children: any, pages: PageConfig[]}) => {
+const BaseHTML = ({children, pages, isStatic=false}: {children: any, pages: PageConfig[], isStatic: boolean}) => {
     const title = pages.find(page => (page.route === "/"|| page.route === "index.html")).title
     return `
 <!DOCTYPE html>
 <html lang="en">
-    ${Head({title, authors})}
+    ${Head({title, authors, isStatic})}
     ${Body({children, pages})}
 </html>
 `}
